@@ -1,0 +1,14 @@
+{
+  "name": "buffaloes-police",
+  "version": "1.0.0",
+  "description": "Chrome extension to detect and correct Buffaloes misspellings",
+  "scripts": {
+    "build": "tsc && cp manifest.json dist/ && cp options.html dist/ && mkdir -p dist/styles && cp -r styles/ dist/",
+    "watch": "tsc --watch",
+    "package": "npm run build && cd dist && zip -r ../buffaloes-police.zip ."
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.254",
+    "typescript": "^5.2.2"
+  }
+}

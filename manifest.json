@@ -13,12 +13,21 @@
         "https://*/*"
       ],
       "js": [
-        "src/content.js"
+        "dist/content.js"
+      ],
+      "css": [
+        "styles/card.css"
       ]
     }
   ],
   "options_page": "options.html",
   "action": {
     "default_title": "Buffaloes Police"
-  }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["styles/card.css"],
+      "matches": ["https://*/*"]
+    }
+  ]
 }

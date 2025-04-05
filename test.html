@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>バファローズ警察 テストページ</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #333;
+      border-bottom: 2px solid #4285f4;
+      padding-bottom: 10px;
+    }
+    .test-section {
+      margin-bottom: 30px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+      padding: 10px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .misspelled {
+      color: red;
+      font-weight: bold;
+    }
+    .correct {
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>バファローズ警察 テストページ</h1>
+  
+  <div class="test-section">
+    <h2>テキスト入力フィールドのテスト</h2>
+    <p>以下のテキストフィールドに「<span class="misspelled">バッファローズ</span>」や「<span class="misspelled">buffalose</span>」などの誤表記を入力してみてください。</p>
+    <p>正しい表記: <span class="correct">バファローズ</span>, <span class="correct">buffaloes</span></p>
+    
+    <label for="test-input">テキスト入力:</label>
+    <input type="text" id="test-input" placeholder="ここに誤表記を入力してください...">
+    
+    <label for="test-textarea">テキストエリア:</label>
+    <textarea id="test-textarea" placeholder="ここに誤表記を入力してください..."></textarea>
+  </div>
+  
+  <div class="test-section">
+    <h2>ページ内テキスト検出のテスト</h2>
+    <p>このページには既に誤表記が含まれています。拡張機能が正しく動作していれば、右上にカードUIが表示されるはずです。</p>
+    <p>例えば、オリックスバッファローズは正しくはオリックス・バファローズと表記します。</p>
+    <p>また、英語では Buffalose ではなく Buffaloes が正しい表記です。</p>
+  </div>
+  
+  <div class="test-section">
+    <h2>設定のテスト</h2>
+    <p>Chrome拡張機能のアイコンをクリックして、設定ページを開くことができます。</p>
+    <p>設定ページでは、誤表記リストをカスタマイズできます。</p>
+    <p>例えば、以下のようなJSONを追加することで、新しい誤表記を追加できます:</p>
+    <pre>
+{
+  "バッファローズ": "バファローズ",
+  "buffalose": "buffaloes",
+  "オリックスバッファローズ": "オリックス・バファローズ"
+}
+    </pre>
+  </div>
+</body>
+</html>

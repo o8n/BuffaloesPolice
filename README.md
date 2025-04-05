@@ -1,9 +1,58 @@
 # Buffaloes Police
 
-Buffaloes Police is a Chrome extension that detects typographical errors related to the Orix Buffaloes team. It helps you avoid common mistakes like "バッファローズ" or "buffalose".
+バファローズの誤表記を検出するChrome拡張機能です。
 
-# Usage
+## 機能
 
-read zip source from chrome extension console
+- テキスト入力フィールドでの誤表記検出
+- ページ内のテキストでの誤表記検出
+- 右上にカードUIで誤表記を表示
+- カスタム誤表記リストの編集
 
-![image](https://github.com/user-attachments/assets/85bb9623-a549-4d8e-8e35-708127629467)
+## 開発方法
+
+### 必要なもの
+
+- Node.js
+- npm
+
+### セットアップ
+
+```bash
+# 依存関係のインストール
+npm install
+```
+
+### ビルド
+
+```bash
+# TypeScriptのコンパイルと必要なファイルのコピー
+npm run build
+```
+
+### パッケージング
+
+```bash
+# 配布用ZIPファイルの作成
+npm run package
+```
+
+## インストール方法
+
+1. Chrome拡張機能ページ（chrome://extensions/）を開く
+2. 「デベロッパーモード」を有効にする
+3. 「パッケージ化されていない拡張機能を読み込む」をクリック
+4. `dist` ディレクトリを選択
+
+または、パッケージングされた `buffaloes-police.zip` ファイルをドラッグ＆ドロップしてインストールすることもできます。
+
+## 使い方
+
+1. インストール後、任意のウェブページを開く
+2. テキスト入力フィールドに「バッファローズ」などの誤表記を入力すると、右上にカードUIが表示される
+3. カードUIには検出された誤表記と正しい表記が表示される
+4. 拡張機能のオプションページで、カスタム誤表記リストを編集できる
+
+## 参考
+
+このプロジェクトは [multese](https://github.com/ayumitamai97/multese) を参考にしています。

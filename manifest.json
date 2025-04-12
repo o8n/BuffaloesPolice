@@ -16,24 +16,12 @@
       "js": [
         "content.js"
       ],
-      "css": [
-        "styles/card.css"
-      ]
+      "all_frames": true,
+      "run_at": "document_start"
     }
   ],
   "options_page": "options.html",
   "action": {
     "default_title": "Buffaloes Police"
-  },
-  "web_accessible_resources": [
-    {
-      "resources": [
-        "styles/card.css"
-      ],
-      "matches": [
-        "https://*/*",
-        "http://*/*"
-      ]
-    }
-  ]
+  }
 }

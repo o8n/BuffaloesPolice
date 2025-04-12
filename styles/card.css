@@ -2,7 +2,7 @@
   position: fixed;
   top: 20px;
   right: 20px;
-  width: 300px;
+  width: 420px;
   max-height: 400px;
   overflow-y: auto;
   background-color: white;
@@ -12,6 +12,18 @@
   font-family: Arial, sans-serif;
   transition: transform 0.3s ease, opacity 0.3s ease;
   transform-origin: top right;
+  animation: popIn 0.3s ease forwards;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .buffaloes-police-card.hidden {
@@ -25,8 +37,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 12px 16px;
-  background-color: #4285f4;
-  color: white;
+  background-color: #001f3f;
+  color: goldenrod;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
 }
@@ -35,6 +47,7 @@
   font-weight: bold;
   font-size: 16px;
   margin: 0;
+  color: goldenrod;
 }
 
 .buffaloes-police-card-close {
@@ -52,7 +65,12 @@
 }
 
 .buffaloes-police-card-content {
-  padding: 16px;
+  padding: 10px 12px;
+  background-color: white;
+  color: black;
+  font-size: 15px;
+  line-height: 1.5;
+  word-break: break-word;
 }
 
 .buffaloes-police-card-item {
@@ -65,6 +83,17 @@
   margin-bottom: 0;
   padding-bottom: 0;
   border-bottom: none;
+}
+
+.buffaloes-police-card-message {
+  background-color: #fff9e6;
+  border-left: 4px solid goldenrod;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333;
+  border-radius: 4px;
+  white-space: pre-wrap;
 }
 
 .buffaloes-police-card-item-title {
@@ -83,8 +112,8 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: #4285f4;
-  color: white;
+  background-color: #001f3f;
+  color: goldenrod;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -96,6 +125,22 @@
   border: none;
 }
 
+.buffaloes-police-card-toggle:hover {
+  opacity: 0.9;
+}
+
 .buffaloes-police-card-toggle.hidden {
   display: none;
+}
+
+/* 📱 モバイル対応 */
+@media screen and (max-width: 480px) {
+  .buffaloes-police-card {
+    width: 90vw;
+    right: 5vw;
+  }
+
+  .buffaloes-police-card-toggle {
+    right: 5vw;
+  }
 }

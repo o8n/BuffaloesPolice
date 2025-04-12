@@ -5,7 +5,11 @@ interface Misspellings {
 // 誤表記リスト（初期値）
 const defaultMisspellings: Misspellings = {
   "バッファローズ": "バファローズ",
-  "buffalose": "buffaloes"
+  "buffalose": "buffaloes",
+  "Buffalos": "Buffaloes",
+  "Buffalose": "Buffaloes",
+  "buffalos": "Buffaloes",
+  "オリックスバッファローズ": "オリックス・バファローズ"
 };
 
 // 検出された誤表記を保存する配列
@@ -35,6 +39,8 @@ function initialize(): void {
     // ページ内のテキストを監視（MutationObserverを使用）
     observePageContent(misspellings);
   });
+
+  console.log('BuffaloesPolice content script loaded!');
 
   // カードUIを作成
   createCardUI();

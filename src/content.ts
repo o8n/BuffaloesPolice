@@ -24,6 +24,8 @@ let isCardVisible = false;
 
 // 初期化関数
 function initialize(): void {
+  console.log('BuffaloesPolice content script loaded!');
+
   // カスタム誤表記リストを読み込む
   chrome.storage.sync.get('misspellings', (data: { misspellings?: Misspellings }) => {
     const misspellings: Misspellings = data.misspellings || defaultMisspellings;
@@ -39,8 +41,6 @@ function initialize(): void {
     // ページ内のテキストを監視（MutationObserverを使用）
     observePageContent(misspellings);
   });
-
-  console.log('BuffaloesPolice content script loaded!');
 
   // カードUIを作成
   createCardUI();

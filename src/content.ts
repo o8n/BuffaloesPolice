@@ -39,11 +39,11 @@ function initialize(): void {
     });
 
     // ページ内のテキストを監視（MutationObserverを使用）
-    observePageContent(misspellings);
+    waitForBodyAndObserve(misspellings);
   });
 
   // カードUIを作成
-  createCardUI();
+  safeCreateCardUI();
 }
 
 // テキストの誤表記をチェック
@@ -98,16 +98,28 @@ function observePageContent(misspellings: Misspellings): void {
     });
   });
   
-  observer.observe(document.body, {
-    childList: true,
-    subtree: true
-  });
-  
-  // 初期ロード時にも既存のテキストをチェック
-  const textNodes = getTextNodes(document.body);
-  textNodes.forEach(textNode => {
-    checkPageText(textNode.textContent || '', misspellings, textNode);
-  });
+  if (document.body) {
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+
+    // 初期ロード時にも既存のテキストをチェック
+    const textNodes = getTextNodes(document.body);
+    textNodes.forEach(textNode => {
+      checkPageText(textNode.textContent || '', misspellings, textNode);
+    });
+  } else {
+    console.warn('observePageContent: document.body が null のため監視できませんでした');
+  }
+}
+
+function waitForBodyAndObserve(misspellings: Misspellings) {
+  if (document.body) {
+    observePageContent(misspellings);
+  } else {
+    setTimeout(() => waitForBodyAndObserve(misspellings), 100);
+  }
 }
 
 // ページ内のテキストノードを取得
@@ -167,6 +179,10 @@ function getContext(text: string, misspelledWord: string): string {
 
 // カードUIを作成
 function createCardUI(): void {
+  if (!document.body) {
+    console.warn('document.body がまだ存在しません。createCardUI をスキップ');
+    return;
+  }
   // カードのトグルボタン
   const toggleButton = document.createElement('button');
   toggleButton.className = 'buffaloes-police-card-toggle';
@@ -212,6 +228,15 @@ function createCardUI(): void {
   document.head.appendChild(styleLink);
   document.body.appendChild(toggleButton);
   document.body.appendChild(card);
+}
+
+function safeCreateCardUI() {
+  if (!document.body) {
+    // DOM 構築が終わるのを待って再試行
+    setTimeout(safeCreateCardUI, 100);
+    return;
+  }
+  createCardUI();
 }
 
 // カードUIを更新

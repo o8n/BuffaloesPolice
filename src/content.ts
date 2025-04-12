@@ -290,4 +290,5 @@ function hideCard(): void {
 }
 
 // 初期化
-document.addEventListener('DOMContentLoaded', initialize);
+initialize();
+// document.addEventListener('DOMContentLoaded', initialize);

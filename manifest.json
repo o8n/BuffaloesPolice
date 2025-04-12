@@ -10,10 +10,11 @@
   "content_scripts": [
     {
       "matches": [
-        "https://*/*"
+        "https://*/*",
+        "http://*/*"
       ],
       "js": [
-        "dist/content.js"
+        "content.js"
       ],
       "css": [
         "styles/card.css"
@@ -26,8 +27,13 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["styles/card.css"],
-      "matches": ["https://*/*"]
+      "resources": [
+        "styles/card.css"
+      ],
+      "matches": [
+        "https://*/*",
+        "http://*/*"
+      ]
     }
   ]
 }

@@ -2,6 +2,8 @@
 
 バファローズの誤表記を検出するChrome拡張機能です。
 
+![バファローズ警察](https://github.com/user-attachments/assets/f27573bf-8345-4195-874d-0a1f66f72d97)
+
 ## 機能
 
 - テキスト入力フィールドでの誤表記検出

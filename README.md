@@ -1,4 +1,4 @@
-# Buffaloes Police
+# BuffaloesPolice
 
 バファローズの誤表記を検出するChrome拡張機能です。
 
